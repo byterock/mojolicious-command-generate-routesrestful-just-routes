@@ -370,7 +370,15 @@ Generates the code. Where $name is the name of the file you want to create, and 
 =head1 SEE ALSO
  
 L<Mojolicious>, L<Mojolicious::Guides>, L<http://mojolicious.org>, L<Mojolicious::Plugin::Routes::Restful>.
- 
+
+=head1 LICENSE AND COPYRIGHT
+
+Copyright 2016 John Scoles.
+This program is free software; you can redistribute it and/or modify it
+under the terms of either: the GNU General Public License as published
+by the Free Software Foundation; or the Artistic License.
+See http://dev.perl.org/licenses/ for more information.
+
 =cut
 
 __DATA__
