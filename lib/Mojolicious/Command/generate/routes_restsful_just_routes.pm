@@ -179,11 +179,11 @@ sub _api_site {
 
     my ( $key, $api, $config ) = @_;
 
-    my $resource         = $api->{resource} || PL($key);
+    my $resource         = $api->{RESOURCE} || PL($key);
     my $verbs            = $api->{VERBS};
     my $stash            = $api->{STASH} || {};
     my $contoller        = $api->{CONTROLLER} || $resource;
-    my $contoller_prefix = $config->{PRIFIX} || "api";
+    my $contoller_prefix = $config->{PREFIX} || "api";
     my $url              = _api_url( $resource, $config );
 
 
@@ -192,13 +192,13 @@ sub _api_site {
                           methods=>"['GET']",
                           controller=>"$contoller_prefix-$contoller#get",
                           stash=>Dumper($stash)})
-      if ( $verbs->{RETREIVE} );
+      if ( $verbs->{RETRIEVE} );
 
       push(@all_routes,{url=>"/" .$url."/:id" ,
                           methods=>"['GET']",
                           controller=>"$contoller_prefix-$contoller#get",
                           stash=>Dumper($stash)})
-      if ( $verbs->{RETREIVE} );
+      if ( $verbs->{RETRIEVE} );
 
     
      push(@all_routes,{url=>"/" .$url  ,
@@ -233,11 +233,11 @@ sub _sub_api_site {
 
     my ( $parent, $key, $api, $config ) = @_;
 
-    my $child_resource   = $api->{resource} || PL($key);
+    my $child_resource   = $api->{RESOURCE} || PL($key);
     my $verbs            = $api->{VERBS};
     my $stash            = $api->{STASH} || {};
     my $child_controller = $api->{CONTROLLER} || $child_resource;
-    my $contoller_prefix = $config->{PRIFIX} || "api";
+    my $contoller_prefix = $config->{PREFIX} || "api";
     my $url              = _api_url( $parent, $config );
     $stash->{parent} = $parent;
     $stash->{child}  = $child_resource;
@@ -247,13 +247,13 @@ sub _sub_api_site {
                           methods=>"['GET']",
                           controller=>"$contoller_prefix-$parent#$child_resource#get",
                           stash=>Dumper($stash)})
-      if ( $verbs->{RETREIVE} );
+      if ( $verbs->{RETRIEVE} );
 
     push(@all_routes,{url=>"/" .$url. "/:id/" . $child_resource."/:child_id",
                           methods=>"['GET']",
                           controller=>"$contoller_prefix-$child_controller#get",
                           stash=>Dumper($stash)})
-      if ( $verbs->{RETREIVE} );
+      if ( $verbs->{RETRIEVE} );
 
     push(@all_routes,{url=>"/" .$url. "/:id/" . $child_resource,
                           methods=>"['POST']",
@@ -287,7 +287,7 @@ sub _sub_inline_api_site {
     my $child_resource = $api->{RESOURCE} || PL($key);    #this should be action
     my $stash          = $api->{STASH} || {};
     my $action           = $api->{ACTION} || $child_resource;
-    my $contoller_prefix = $config->{PRIFIX} || "api";
+    my $contoller_prefix = $config->{PREFIX} || "api";
     my $url              = _api_url( $parent, $config );
     $stash->{parent} = $parent;
     $stash->{child}  = $child_resource;
@@ -296,7 +296,7 @@ sub _sub_inline_api_site {
                           methods=>"['GET']",
                           controller=>"$contoller_prefix-$parent#$action",
                           stash=>Dumper($stash)})
-      if ( $verbs->{RETREIVE} );
+      if ( $verbs->{RETRIEVE} );
 
     push(@all_routes,{url=>"/" .$url. "/:id/" . $child_resource,
                           methods=>"['PATCH']",

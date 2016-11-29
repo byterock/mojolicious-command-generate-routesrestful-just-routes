@@ -25,7 +25,7 @@ $o->run('RoutesRestfulCode',{
                         VERBS => {
                             CREATE   => 1,
                             UPDATE   => 1,
-                            RETREIVE => 1,
+                            RETRIEVE => 1,
                             REPLACE  => 1,
                             DELETE   => 1
                         },
@@ -34,7 +34,7 @@ $o->run('RoutesRestfulCode',{
                         detail => {
                             #DEBUG => 1,
                             API   => { VERBS => { UPDATE   => 1,
-                                                  RETREIVE => 1 } }
+                                                  RETRIEVE => 1 } }
                         },
                         planning => {
                             #DEBUG => 1,
@@ -42,7 +42,7 @@ $o->run('RoutesRestfulCode',{
                                #DEBUG => 1,
                                 RESOURCE => 'planning',
                                 VERBS    => { UPDATE   => 1,
-                                              RETREIVE => 1 }
+                                              RETRIEVE => 1 }
                             }
                         },
                         longdetail => {
@@ -60,7 +60,7 @@ $o->run('RoutesRestfulCode',{
                                 #DEBUG => 1,
                                 VERBS => {
                                     CREATE   => 1,
-                                    RETREIVE => 1,
+                                    RETRIEVE => 1,
                                     REPLACE  => 1,
                                     UPDATE   => 1,
                                     DELETE   => 1
@@ -74,7 +74,7 @@ $o->run('RoutesRestfulCode',{
                                 VERBS => {
                                     CREATE   => 1,
                                     REPLACE  => 1,
-                                    RETREIVE => 1,
+                                    RETRIEVE => 1,
                                     UPDATE   => 1,
                                     DELETE   => 1
                                 }
@@ -92,7 +92,7 @@ $o->run('RoutesRestfulCode',{
                 API => {
                     VERSION    => 'V_1',
                     RESOURCE_PREFIX => 'myapp',
-                    PRIFIX          => 'ipa'
+                    PREFIX          => 'ipa'
                 },
             },
             PARENT => {
@@ -115,7 +115,7 @@ $o->run('RoutesRestfulCode',{
                     {RESOURCE=>'paper',
                         CONTROLLER     => 'papers',
                         #DEBUG => 1,
-                        VERBS => { RETREIVE => 1, },
+                        VERBS => { RETRIEVE => 1, },
                     },
 
                 },
@@ -137,7 +137,7 @@ $o->run('RoutesRestfulCode',{
                                 ACTION     => 'mydeatails',
                                 RESOURCE  => 'my_details',
                                 VERBS => {
-                                    RETREIVE => 1
+                                    RETRIEVE => 1
                                 }
                             }
                         },
@@ -150,7 +150,7 @@ $o->run('RoutesRestfulCode',{
                                 RESOURCE => 'planning',
                                 VERBS    => {
                                       
-                                     RETREIVE => 1
+                                     RETRIEVE => 1
                                 }
                             }
                         },
@@ -168,7 +168,7 @@ $o->run('RoutesRestfulCode',{
                                 RESOURCE   => 'view_users',
                                #DEBUG => 1,
                                 VERBS => {
-                                    RETREIVE => 1,
+                                    RETRIEVE => 1,
                                 }
                             }
                         },
@@ -182,7 +182,7 @@ $o->run('RoutesRestfulCode',{
                                 VERBS => {
                                     CREATE   => 1,
                                     REPLACE  => 1,
-                                    RETREIVE => 1,
+                                    RETRIEVE => 1,
                                     UPDATE   => 1,
                                     DELETE   => 1
                                 }
